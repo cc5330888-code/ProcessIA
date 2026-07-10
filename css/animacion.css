@@ -1,0 +1,467 @@
+/* =====================================================
+   ProcessIA Animations
+   Estilo tecnológico / futurista
+=====================================================*/
+
+/* ========= APARICIÓN GENERAL ========= */
+
+@keyframes fadeSlideUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.fade-up{
+    animation:fadeSlideUp .8s cubic-bezier(.22,.8,.25,1) forwards;
+}
+
+
+/* ========= EFECTO GLOW ========= */
+
+@keyframes glowBorder{
+
+0%{
+
+box-shadow:
+0 0 0 rgba(34,211,238,.0);
+
+}
+
+50%{
+
+box-shadow:
+0 0 18px rgba(34,211,238,.25);
+
+}
+
+100%{
+
+box-shadow:
+0 0 0 rgba(34,211,238,0);
+
+}
+
+}
+
+.card:hover{
+
+animation:glowBorder 1.2s infinite;
+
+}
+
+
+/* ========= EFECTO TARJETA 3D ========= */
+
+.card{
+
+transition:
+transform .35s ease,
+box-shadow .35s ease;
+
+transform-style:preserve-3d;
+
+}
+
+.card:hover{
+
+transform:
+translateY(-8px)
+rotateX(3deg);
+
+}
+
+
+/* ========= BOTÓN ========= */
+
+.btn-analizar{
+
+overflow:hidden;
+position:relative;
+
+}
+
+.btn-analizar::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:80%;
+height:100%;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.35),
+transparent
+);
+
+transform:skewX(-25deg);
+
+}
+
+.btn-analizar:hover::before{
+
+left:140%;
+transition:1s;
+
+}
+
+
+/* ========= HERO ========= */
+
+.hero-title{
+
+animation:titleReveal 1.1s ease forwards;
+
+}
+
+@keyframes titleReveal{
+
+0%{
+
+opacity:0;
+transform:
+translateY(25px);
+
+}
+
+100%{
+
+opacity:1;
+transform:
+translateY(0);
+
+}
+
+}
+
+
+/* ========= GRID ========= */
+
+.hero-grid{
+
+animation:gridMove 25s linear infinite;
+
+}
+
+@keyframes gridMove{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:translateY(42px);
+
+}
+
+}
+
+
+/* ========= NODOS BPMN ========= */
+
+.flow-node{
+
+transition:
+transform .25s ease;
+
+}
+
+.flow-node:hover{
+
+transform:scale(1.08);
+
+}
+
+
+/* ========= LÍNEAS BPMN ========= */
+
+.flow-line{
+
+filter:drop-shadow(
+0 0 6px rgba(34,211,238,.35)
+);
+
+}
+
+
+/* ========= EVENTOS ========= */
+
+.flow-event-start,
+.flow-event-end{
+
+animation:pulseNode 2.4s infinite;
+
+}
+
+@keyframes pulseNode{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+
+/* ========= GATEWAY ========= */
+
+.flow-gateway{
+
+animation:rotateGlow 5s linear infinite;
+
+transform-origin:center;
+
+}
+
+@keyframes rotateGlow{
+
+0%{
+
+filter:drop-shadow(
+0 0 0 rgba(245,158,11,.2)
+);
+
+}
+
+50%{
+
+filter:drop-shadow(
+0 0 12px rgba(245,158,11,.45)
+);
+
+}
+
+100%{
+
+filter:drop-shadow(
+0 0 0 rgba(245,158,11,.2)
+);
+
+}
+
+}
+
+
+/* ========= INPUT ========= */
+
+.input-textarea{
+
+transition:
+all .3s ease;
+
+}
+
+.input-textarea:focus{
+
+transform:scale(1.01);
+
+}
+
+
+/* ========= RESULTADOS ========= */
+
+.results{
+
+animation:fadeSlideUp .8s ease;
+
+}
+
+
+/* ========= SCROLL ========= */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#0A0F1E;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#2563EB;
+
+border-radius:30px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#22D3EE;
+
+}
+
+
+/* ========= EFECTO ESCANEO ========= */
+
+.hero::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+top:-100%;
+
+width:100%;
+height:250%;
+
+background:linear-gradient(
+
+180deg,
+
+transparent 0%,
+
+rgba(34,211,238,.03) 45%,
+
+rgba(34,211,238,.12) 50%,
+
+rgba(34,211,238,.03) 55%,
+
+transparent 100%
+
+);
+
+pointer-events:none;
+
+animation:scanner 7s linear infinite;
+
+}
+
+@keyframes scanner{
+
+0%{
+
+transform:translateY(-100%);
+
+}
+
+100%{
+
+transform:translateY(100%);
+
+}
+
+}
+
+
+
+
+/* ========= FLOTACIÓN ========= */
+
+.card:nth-child(odd){
+
+animation:
+fadeUp .5s ease forwards,
+floating 6s ease-in-out .5s infinite;
+
+}
+
+.card:nth-child(even){
+
+animation:
+fadeUp .5s ease forwards,
+floating2 7s ease-in-out .5s infinite;
+
+}
+@keyframes floating{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-4px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes floating2{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(4px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+.logo-svg{
+
+display:block;
+
+animation:logoRotate 20s linear infinite;
+
+transform-origin:center;
+
+filter:drop-shadow(
+0 0 12px rgba(34,211,238,.45)
+);
+
+}
+
+@keyframes logoRotate{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}

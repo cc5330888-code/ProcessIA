@@ -1,0 +1,363 @@
+/* =========================================================
+   RESPONSIVE.CSS
+   ProcessIA Responsive Layout
+========================================================= */
+
+/* ==============================
+   Pantallas grandes (4K)
+============================== */
+
+@media (min-width:1600px){
+
+.section-inner,
+.nav-inner,
+.hero-inner{
+
+max-width:1450px;
+
+}
+
+.hero-title{
+
+font-size:72px;
+
+}
+
+.hero-desc{
+
+font-size:20px;
+
+max-width:800px;
+
+}
+
+.results-grid{
+
+grid-template-columns:repeat(3,1fr);
+
+gap:24px;
+
+}
+
+}
+
+
+/* ==============================
+   Laptop
+============================== */
+
+@media (max-width:1200px){
+
+.results-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.hero-flow{
+
+max-width:100%;
+
+}
+
+}
+
+
+/* ==============================
+   Tablet Horizontal
+============================== */
+
+@media (max-width:992px){
+
+.hero{
+
+padding:70px 20px;
+
+}
+
+.hero-title{
+
+font-size:42px;
+
+}
+
+.hero-desc{
+
+font-size:16px;
+
+}
+
+.results-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:18px;
+
+}
+
+.input-card{
+
+padding:24px;
+
+}
+
+.flow-diagram-wrapper{
+
+overflow-x:auto;
+
+}
+
+}
+
+
+/* ==============================
+   Tablet Vertical
+============================== */
+
+@media (max-width:768px){
+
+.nav-inner{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.nav-tag{
+
+width:100%;
+justify-content:center;
+
+}
+
+.hero{
+
+padding:60px 18px;
+
+}
+
+.hero-title{
+
+font-size:34px;
+
+line-height:1.2;
+
+}
+
+.hero-desc{
+
+font-size:15px;
+
+}
+
+.hero-flow{
+
+margin-top:35px;
+
+}
+
+.input-card{
+
+padding:18px;
+
+}
+
+.input-footer{
+
+flex-direction:column;
+
+gap:15px;
+
+align-items:stretch;
+
+}
+
+.btn-analizar{
+
+width:100%;
+justify-content:center;
+
+}
+
+.results-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.card{
+
+padding:18px;
+
+}
+
+.flow-diagram-wrapper{
+
+padding:12px;
+
+}
+
+.footer-inner{
+
+flex-direction:column;
+
+text-align:center;
+
+gap:8px;
+
+}
+
+}
+
+
+/* ==============================
+   Celulares
+============================== */
+
+@media (max-width:576px){
+
+.section-inner{
+
+padding:0 15px;
+
+}
+
+.hero-title{
+
+font-size:28px;
+
+}
+
+.hero-desc{
+
+font-size:14px;
+
+}
+
+.input-label{
+
+font-size:13px;
+
+}
+
+.input-textarea{
+
+font-size:14px;
+
+min-height:120px;
+
+}
+
+.btn-analizar{
+
+font-size:14px;
+
+padding:12px;
+
+}
+
+.card-title{
+
+font-size:15px;
+
+}
+
+.card-body{
+
+font-size:13px;
+
+}
+
+.flow-diagram-wrapper{
+
+display:none;
+
+}
+
+.sipoc-table{
+
+display:block;
+overflow-x:auto;
+
+}
+
+.sipoc-table table{
+
+min-width:700px;
+
+}
+
+}
+
+
+/* ==============================
+   Celulares pequeños
+============================== */
+
+@media (max-width:400px){
+
+.hero{
+
+padding:45px 12px;
+
+}
+
+.hero-title{
+
+font-size:24px;
+
+}
+
+.hero-desc{
+
+font-size:13px;
+
+}
+
+.nav-name{
+
+font-size:15px;
+
+}
+
+.card{
+
+padding:15px;
+
+}
+
+.btn-analizar{
+
+font-size:13px;
+
+}
+
+}
+
+
+/* ==============================
+   Orientación horizontal
+============================== */
+
+@media (orientation:landscape) and (max-height:600px){
+
+.hero{
+
+padding:40px 20px;
+
+}
+
+.hero-title{
+
+font-size:30px;
+
+}
+
+.hero-desc{
+
+display:none;
+
+}
+
+}
