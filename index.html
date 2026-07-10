@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProcessIA — Copiloto de Gestión de Procesos</title>
+  <meta name="description" content="ProcessIA analiza tu proceso de negocio y genera Objetivo, SIPOC, Indicadores, Riesgos, BPA y RPA con IA.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/animacion.css">
+<link rel="stylesheet" href="css/efectos.css">
+<link rel="stylesheet" href="css/responsive.css">
+
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="nav-inner">
+<div class="nav-brand">
+
+    <span class="nav-mark" aria-hidden="true">
+
+        <img
+            src="assets/logo.svg"
+            class="logo-svg"
+            alt="ProcessIA">
+
+    </span>
+
+    <div class="nav-title">
+
+        <span class="nav-name">
+            ProcessIA
+        </span>
+
+        <span class="nav-sub">
+            UNT · Ingeniería Industrial
+        </span>
+
+    </div>
+
+</div>
+      <div class="nav-tag">
+        <span class="dot-live" aria-hidden="true"></span>
+        Motor: Llama 3.3 70B
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="corner corner-tl" aria-hidden="true"></div>
+        <div class="corner corner-tr" aria-hidden="true"></div>
+
+        <p class="eyebrow">
+          <span class="eyebrow-index">00 / PROCESO → PLANO</span>
+        </p>
+        <h1 class="hero-title">
+          Describe tu proceso.<br>
+          <span class="hero-title-accent">Obtén el plano completo.</span>
+        </h1>
+        <p class="hero-desc">
+          ProcessIA convierte la descripción de cualquier proceso de negocio en
+          un análisis técnico completo — Objetivo, SIPOC, Indicadores, Riesgos,
+          BPA y RPA — con un diagrama de flujo que se traza en tiempo real.
+        </p>
+
+        <div id="hero-flow-diagram" class="hero-flow" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ INPUT ============ -->
+    <section class="input-section" id="input-section">
+      <div class="section-inner">
+        <div class="input-card">
+          <div class="corner corner-tl" aria-hidden="true"></div>
+          <div class="corner corner-br" aria-hidden="true"></div>
+
+          <label for="proceso-input" class="input-label">
+            <span class="input-label-num">01</span>
+            Describe tu proceso, para mejores resultados ten en cuenta 
+          que: Participan al menos 3 actores,
+          Describe 6 o más actividades, Explica el inicio y el final del proceso.
+          </label>
+          <textarea
+            id="proceso-input"
+            class="input-textarea"
+            placeholder="Ej: El cliente hace un pedido por WhatsApp, el vendedor verifica stock en Excel, si hay stock se genera la orden de venta, el almacén prepara el pedido, se despacha con el transportista y finalmente se factura al cliente..."
+            rows="6"
+          ></textarea>
+
+          <div class="input-footer">
+            <span id="char-count" class="char-count">0 caracteres</span>
+            <button id="analizar" class="btn-analizar">
+              <span class="btn-text">Analizar proceso</span>
+              <span class="btn-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <div id="status" class="status" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section class="results" id="results">
+      <div class="section-inner">
+
+        <div id="flow-diagram-container" class="flow-diagram-wrapper" style="display:none;"></div>
+
+        <div class="results-grid">
+
+          <article class="card card-objetivo">
+            <div class="card-head">
+              <span class="card-num">02</span>
+              <h2 class="card-title">Objetivo</h2>
+            </div>
+            <div id="objetivo" class="card-body"></div>
+          </article>
+
+          <article class="card card-sipoc">
+            <div class="card-head">
+              <span class="card-num">03</span>
+              <h2 class="card-title">SIPOC</h2>
+            </div>
+            <div id="sipoc" class="card-body"></div>
+          </article>
+
+          <article class="card card-indicadores">
+            <div class="card-head">
+              <span class="card-num">04</span>
+              <h2 class="card-title">Indicadores</h2>
+            </div>
+            <div id="indicadores" class="card-body mono"></div>
+          </article>
+
+          <article class="card card-riesgos">
+            <div class="card-head">
+              <span class="card-num">05</span>
+              <h2 class="card-title">Riesgos</h2>
+            </div>
+            <div id="riesgos" class="card-body"></div>
+          </article>
+
+          <article class="card card-bpa">
+            <div class="card-head">
+              <span class="card-num">06</span>
+              <h2 class="card-title">BPA</h2>
+            </div>
+            <div id="bpa" class="card-body"></div>
+          </article>
+
+          <article class="card card-rpa">
+            <div class="card-head">
+              <span class="card-num">07</span>
+              <h2 class="card-title">RPA</h2>
+            </div>
+            <div id="rpa" class="card-body"></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="section-inner footer-inner">
+      <span>ProcessIA · Proyecto académico</span>
+      <span>Gestión de Procesos — Ingeniería Industrial, UNT</span>
+    </div>
+  </footer>
+
+  <script src="js/prompts.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/flowDiagram.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
